@@ -1,5 +1,6 @@
 import os
 import json
+import uuid
 
 def scan_directory(directory_path):
     """Scans a directory and its subdirectories for FLAC and MP3 files."""
@@ -25,6 +26,7 @@ if __name__ == '__main__':
             relative_cover_path = os.path.relpath(cover_path, './MonsterSiren/').replace('\\', '/')
             relative_file_path = os.path.relpath(file_path, './MonsterSiren/').replace('\\', '/')
             songs.append({
+                'uuid': uuid.uuid4().hex,
                 'cover': relative_cover_path,
                 'path': relative_file_path,
                 'name': song_name
