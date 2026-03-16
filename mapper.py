@@ -17,6 +17,7 @@ def sort_songs(songs):
 
 
 if __name__ == '__main__':
+    print('Generating song list...')
     completed_songs_file = './MonsterSiren/completed_songs.json'
     with open(completed_songs_file, 'w+', encoding='utf8') as f:
         songs = []
@@ -35,5 +36,6 @@ if __name__ == '__main__':
         songs = sort_songs(songs)
 
         json.dump(songs, f, ensure_ascii=False, indent=4)
-
+    
+        print(f'Wrote {len(songs)} songs to {completed_songs_file}')
         
